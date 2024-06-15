@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Inter as FontSans } from "next/font/google";
+
+import { cn } from "@/lib/utils";
+import { Header } from "./ui/header";
+
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   title: "Responsive img",
@@ -13,7 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+        className={cn(
+          "min-h-screen bg-background bg-slate-100 font-sans antialiased",
+          fontSans.variable,
+        )}
+      >
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
