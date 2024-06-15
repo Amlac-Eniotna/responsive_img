@@ -13,6 +13,7 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: "Responsive img",
   description: "Resize your images to multiple resolutions",
+  icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({
