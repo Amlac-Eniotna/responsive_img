@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
 
@@ -16,6 +17,13 @@ export function Options() {
 
   return (
     <>
+      <Input
+        type="file"
+        placeholder="px"
+        className="max-w-72"
+        min={1}
+        max={4999}
+      ></Input>
       <div className="flex items-center gap-4">
         <Button onClick={() => handleClick("Add")}>Add</Button>
         <p>{number}</p>
