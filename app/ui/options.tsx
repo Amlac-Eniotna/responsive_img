@@ -26,7 +26,7 @@ export function Options() {
       ></Input>
       <div className="flex items-center gap-4">
         <Button onClick={() => handleClick("Add")}>Add</Button>
-        <p>{number}</p>
+        <p className="w-6 text-center">{number}</p>
         <Button onClick={() => handleClick("Sub")}>Sub</Button>
       </div>
       <div className="flex items-center gap-4">
