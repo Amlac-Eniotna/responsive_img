@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter as FontSans } from "next/font/google";
-
+import StoreProvider from "./StoreProvider";
 import { cn } from "@/lib/utils";
 import { Header } from "./ui/header";
 
@@ -30,7 +30,7 @@ export default function RootLayout({
         )}
       >
         <Header />
-        {children}
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   );
