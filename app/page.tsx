@@ -1,7 +1,7 @@
-import { Input } from "@/components/ui/input";
 import { Options } from "./ui/options";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
+import { InputSizes } from "./ui/sizes";
 
 export default function Home() {
   return (
@@ -10,48 +10,7 @@ export default function Home() {
         <Options />
       </section>
       <section id="size" className="flex flex-wrap items-center gap-8">
-        <Input
-          type="number"
-          placeholder="px"
-          className="w-24"
-          min={1}
-          max={4999}
-        ></Input>
-        <Input
-          type="number"
-          placeholder="px"
-          className="w-24"
-          min={1}
-          max={4999}
-        ></Input>
-        <Input
-          type="number"
-          placeholder="px"
-          className="w-24"
-          min={1}
-          max={4999}
-        ></Input>
-        <Input
-          type="number"
-          placeholder="px"
-          className="w-24"
-          min={1}
-          max={4999}
-        ></Input>
-        <Input
-          type="number"
-          placeholder="px"
-          className="w-24"
-          min={1}
-          max={4999}
-        ></Input>
-        <Input
-          type="number"
-          placeholder="px"
-          className="w-24"
-          min={1}
-          max={4999}
-        ></Input>
+        <InputSizes />
       </section>
       <section id="canvas">
         <ScrollArea className="whitespace-nowrap rounded-md border">

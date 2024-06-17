@@ -1,5 +1,5 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { numberOfInput } from "./sizes.actions";
+import { NUMBER_OF_INPUT, WIDTH_HEIGHT, INPUT_VALUE } from "./sizes.actions";
 
 const initialState = {
   numberOfInput: 1,
@@ -9,15 +9,15 @@ const initialState = {
 
 export default function sizesReducer(
   state = initialState,
-  action: PayloadAction<number | string | number[]>,
+  action: PayloadAction<string | number | number[]>,
 ) {
   switch (action.type) {
-    case "numberOfInput":
-        return {...state, action.payload}
-    case "widthHeight":
-        return {...state, action.payload}
-    case "inputValue":
-        return {...state, action.payload}
+    case NUMBER_OF_INPUT:
+      return { ...state, numberOfInput: action.payload };
+    case WIDTH_HEIGHT:
+      return { ...state, widthHeight: action.payload };
+    case INPUT_VALUE:
+      return { ...state, inputValue: action.payload };
     default:
       return state;
   }
