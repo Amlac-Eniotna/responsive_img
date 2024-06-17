@@ -25,21 +25,6 @@ export default function Home() {
                 1920 x 1080
               </p>
             </div>
-            <div className="relative h-72 w-96 rounded border border-slate-400 bg-white">
-              <p className="absolute mt-4 bg-slate-900/50 px-1 text-white">
-                1920 x 1080
-              </p>
-            </div>
-            <div className="relative h-72 w-96 rounded border border-slate-400 bg-white">
-              <p className="absolute mt-4 bg-slate-900/50 px-1 text-white">
-                1920 x 1080
-              </p>
-            </div>
-            <div className="relative h-72 w-96 rounded border border-slate-400 bg-white">
-              <p className="absolute mt-4 bg-slate-900/50 px-1 text-white">
-                1920 x 1080
-              </p>
-            </div>
           </div>
           <ScrollBar orientation="horizontal" className="mx-4 my-1 h-4" />
         </ScrollArea>
