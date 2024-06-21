@@ -18,9 +18,9 @@ export function NumberOfValue() {
 
   return (
     <div className="flex items-center gap-4">
-      <Button onClick={() => handleClick("Add")}>Add</Button>
-      <p className="w-6 text-center">{number}</p>
       <Button onClick={() => handleClick("Sub")}>Sub</Button>
+      <p className="w-6 text-center">{number}</p>
+      <Button onClick={() => handleClick("Add")}>Add</Button>
     </div>
   );
 }
