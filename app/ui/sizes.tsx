@@ -11,7 +11,7 @@ export function InputSizes() {
     (state) => state.sizes.numberOfInput,
   );
   const dispatch = useAppDispatch();
-  const [values, setValues] = useState([1]);
+  const [values, setValues] = useState([8]);
 
   useEffect(() => {
     dispatch(inputValue(values));

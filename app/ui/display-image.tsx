@@ -1,9 +1,10 @@
 "use client";
 
-import { useAppSelector } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { convert } from "../services/convert";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { images } from "@/lib/sizes/sizes.actions";
 
 export function DisplayImage() {
   //@ts-ignore
@@ -19,9 +20,15 @@ export function DisplayImage() {
     (state) => state.sizes.widthHeight,
   );
 
+  const dispatch = useAppDispatch();
+
   const [datas, setDatas] = useState<
     { url: string; width: number; height: number }[]
   >([]);
+
+  useEffect(() => {
+    dispatch(images(datas));
+  }, [datas, dispatch]);
 
   useEffect(() => {
     if (file && sizes.length > 0 && numberOfImage > 0) {

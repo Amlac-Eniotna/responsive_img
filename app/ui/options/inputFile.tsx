@@ -18,7 +18,7 @@ export function InputFile() {
         dispatch(file(reader.result));
       };
     }
-  }, [dispatch, image]);
+  }, [image, dispatch]);
 
   function handleChange(e: any) {
     setImage(e.target.files[0]);

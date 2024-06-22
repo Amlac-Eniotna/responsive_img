@@ -3,12 +3,15 @@
 import { Switch } from "@/components/ui/switch";
 import { useAppDispatch } from "@/lib/hooks";
 import { widthHeight } from "@/lib/sizes/sizes.actions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function WidthHeight() {
   const dispatch = useAppDispatch();
   const [dimension, setDimension] = useState("width");
-  dispatch(widthHeight(dimension));
+
+  useEffect(() => {
+    dispatch(widthHeight(dimension));
+  });
 
   function handleCheck(e: boolean) {
     if (e === false) setDimension("width");

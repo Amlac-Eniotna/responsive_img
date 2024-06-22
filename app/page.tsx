@@ -1,8 +1,8 @@
 import { Options } from "./ui/options";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { Button } from "@/components/ui/button";
 import { InputSizes } from "./ui/sizes";
 import { DisplayImage } from "./ui/display-image";
+import { ZipButton } from "./ui/zip-button";
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
         </ScrollArea>
       </section>
       <section id="download">
-        <Button>Download ZIP</Button>
+        <ZipButton />
       </section>
     </main>
   );
