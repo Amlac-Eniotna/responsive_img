@@ -8,4 +8,4 @@ export const FILE = "file";
 export const numberOfInput = createAction<number>(NUMBER_OF_INPUT);
 export const widthHeight = createAction<string>(WIDTH_HEIGHT);
 export const inputValue = createAction<number[]>(INPUT_VALUE);
-export const file = createAction<Object>(FILE);
+export const file = createAction<string>(FILE);

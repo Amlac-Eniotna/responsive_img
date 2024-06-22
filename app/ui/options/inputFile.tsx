@@ -6,8 +6,7 @@ import { file } from "@/lib/sizes/sizes.actions";
 import { useEffect, useState } from "react";
 
 export function InputFile() {
-  const [image, setImage] = useState();
-  const [preview, setPreview] = useState<string>();
+  const [image, setImage] = useState<any>();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -15,14 +14,11 @@ export function InputFile() {
     if (image) {
       reader.readAsDataURL(image);
       reader.onload = () => {
+        //@ts-ignore
         dispatch(file(reader.result));
       };
     }
-    let objectUrl = "";
-    if (image) objectUrl = URL.createObjectURL(image);
-    setPreview(objectUrl);
-    return () => URL.revokeObjectURL(objectUrl);
-  }, [image]);
+  }, [dispatch, image]);
 
   function handleChange(e: any) {
     setImage(e.target.files[0]);
@@ -39,7 +35,6 @@ export function InputFile() {
         max={4999}
         accept="image/*"
       ></Input>
-      <img src={preview} alt="image" width="50px" />
     </>
   );
 }

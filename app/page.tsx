@@ -14,7 +14,7 @@ export default function Home() {
         <InputSizes />
       </section>
       <section id="canvas">
-        <ScrollArea className="whitespace-nowrap rounded-md border">
+        <ScrollArea className="h-[330px] whitespace-nowrap rounded-md border">
           <DisplayImage />
           <ScrollBar orientation="horizontal" className="mx-4 my-1 h-4" />
         </ScrollArea>
