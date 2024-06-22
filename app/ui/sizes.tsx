@@ -11,7 +11,7 @@ export function InputSizes() {
     (state) => state.sizes.numberOfInput,
   );
   const dispatch = useAppDispatch();
-  const [values, setValues] = useState([0]);
+  const [values, setValues] = useState([1]);
 
   useEffect(() => {
     dispatch(inputValue(values));
@@ -21,6 +21,7 @@ export function InputSizes() {
     const value: number[] = [...values];
     //@ts-ignore
     const id = parseInt(e.target.dataset.id);
+    value[id] = 1;
     value[id] = parseInt(e.target.value);
     setValues(value);
   }

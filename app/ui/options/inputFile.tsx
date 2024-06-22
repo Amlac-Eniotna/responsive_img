@@ -1,16 +1,23 @@
 "use client";
 
-import { convert } from "@/app/services/convert";
 import { Input } from "@/components/ui/input";
+import { useAppDispatch } from "@/lib/hooks";
+import { file } from "@/lib/sizes/sizes.actions";
 import { useEffect, useState } from "react";
 
 export function InputFile() {
   const [image, setImage] = useState();
   const [preview, setPreview] = useState<string>();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    convert(image);
-
+    const reader = new FileReader();
+    if (image) {
+      reader.readAsDataURL(image);
+      reader.onload = () => {
+        dispatch(file(reader.result));
+      };
+    }
     let objectUrl = "";
     if (image) objectUrl = URL.createObjectURL(image);
     setPreview(objectUrl);
