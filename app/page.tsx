@@ -3,6 +3,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { InputSizes } from "./ui/sizes";
 import { DisplayImage } from "./ui/display-image";
 import { ZipButton } from "./ui/zip-button";
+import { AdBanner } from "./ui/adsense/ad-banner";
 
 export default function Home() {
   return (
@@ -21,6 +22,9 @@ export default function Home() {
       </section>
       <section id="download">
         <ZipButton />
+      </section>
+      <section id="pub">
+        <AdBanner dataAdFormat="auto" dataFullWidthResponsive={true} />
       </section>
     </main>
   );

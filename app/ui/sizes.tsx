@@ -21,7 +21,8 @@ export function InputSizes() {
     const value: number[] = [...values];
     //@ts-ignore
     const id = parseInt(e.target.dataset.id);
-    value[id] = parseInt("8");
+    if (parseInt(e.target.value) < 0) e.target.value = "8";
+    if (parseInt(e.target.value) > 4999) e.target.value = "4999";
     if (e.target.value) value[id] = parseInt(e.target.value);
     setValues(value);
   }
@@ -36,7 +37,7 @@ export function InputSizes() {
         className="w-24"
         onChange={handleChange}
         min={8}
-        max={9999}
+        max={4999}
         data-id={`${i}`}
       ></Input>,
     );

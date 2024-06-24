@@ -19,6 +19,9 @@ export function ZipButton() {
   function handleClick() {
     createZip(images, widthOrHeight);
   }
-
-  return <Button onClick={handleClick}>Download ZIP</Button>;
+  return (
+    <Button onClick={handleClick} disabled={images[0] ? false : true}>
+      Download ZIP
+    </Button>
+  );
 }

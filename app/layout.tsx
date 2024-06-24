@@ -4,6 +4,8 @@ import { Inter as FontSans } from "next/font/google";
 import StoreProvider from "./StoreProvider";
 import { cn } from "@/lib/utils";
 import { Header } from "./ui/header";
+import Head from "next/head";
+import { AdSense } from "./ui/adsense/adsense";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -23,6 +25,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <meta
+          name="google-adsense-account"
+          content={`ca-pub-${process.env.GOOGLE_PID}`}
+        />
+        <AdSense />
+      </Head>
       <body
         className={cn(
           "min-h-screen bg-background bg-slate-100 font-sans antialiased",

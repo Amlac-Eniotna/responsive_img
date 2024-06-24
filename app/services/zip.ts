@@ -27,7 +27,7 @@ export async function createZip(
 
   const content = await zip.generateAsync({ type: "blob" });
 
-  saveAs(content, "images.zip");
+  saveAs(content, `${name}.zip`);
 }
 
 function createName() {
