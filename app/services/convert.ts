@@ -30,7 +30,7 @@ export function convert(
           canvas.height = ratio;
         }
         ctx.drawImage(img, 0, 0, data.width, data.height);
-        data.url = canvas.toDataURL("image/webp");
+        data.url = canvas.toDataURL("image/webp", 0.8);
         resolve(data);
       };
       img.onerror = reject;
