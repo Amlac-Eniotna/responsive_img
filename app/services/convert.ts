@@ -3,6 +3,7 @@
 export function convert(
   file: string,
   widthOrHeight: string,
+  quality: number,
   size: number,
 ): Promise<{ url: string; width: number; height: number }> {
   return new Promise((resolve, reject) => {
@@ -30,7 +31,7 @@ export function convert(
           canvas.height = ratio;
         }
         ctx.drawImage(img, 0, 0, data.width, data.height);
-        data.url = canvas.toDataURL("image/webp", 0.8);
+        data.url = canvas.toDataURL("image/webp", quality);
         resolve(data);
       };
       img.onerror = reject;

@@ -5,18 +5,21 @@ import {
   INPUT_VALUE,
   FILE,
   IMAGES,
+  QUALITY,
 } from "./sizes.actions";
 
 const initialState: {
   numberOfInput: number;
   widthHeight: string;
   inputValue: number[];
+  quality: number;
   file: string;
   images: { url: string; height: number; width: number }[];
 } = {
   numberOfInput: 1,
   widthHeight: "width",
   inputValue: [],
+  quality: 0.8,
   file: "",
   images: [],
 };
@@ -37,6 +40,8 @@ export default function sizesReducer(
       return { ...state, widthHeight: action.payload };
     case INPUT_VALUE:
       return { ...state, inputValue: action.payload };
+    case QUALITY:
+      return { ...state, quality: action.payload };
     case FILE:
       return { ...state, file: action.payload };
     case IMAGES:

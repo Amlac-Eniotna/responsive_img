@@ -19,6 +19,8 @@ export function DisplayImage() {
   const widthOrHeight: string = useAppSelector(
     (state) => state.sizes.widthHeight,
   );
+  //@ts-ignore
+  const quality: number = useAppSelector((state) => state.sizes.quality);
 
   const dispatch = useAppDispatch();
 
@@ -36,7 +38,12 @@ export function DisplayImage() {
         const data = [];
         for (let i = 0; i < numberOfImage; i++) {
           try {
-            const convertedData = await convert(file, widthOrHeight, sizes[i]);
+            const convertedData = await convert(
+              file,
+              widthOrHeight,
+              quality,
+              sizes[i],
+            );
             data.push(convertedData);
           } catch (error) {
             console.error("Error converting image:", error);
@@ -46,7 +53,7 @@ export function DisplayImage() {
       };
       fetchData();
     }
-  }, [file, numberOfImage, widthOrHeight, sizes]);
+  }, [file, numberOfImage, widthOrHeight, sizes, quality]);
 
   return (
     <div className="flex w-max items-center gap-8 p-4 pb-6">
