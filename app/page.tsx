@@ -1,9 +1,8 @@
 import { Options } from "./ui/options";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { InputSizes } from "./ui/sizes";
-import { DisplayImage } from "./ui/display-image";
 import { ZipButton } from "./ui/zip-button";
 import { AdBanner } from "./ui/adsense/ad-banner";
+import { ImageZone } from "./ui/image-zone";
 
 export default function Home() {
   return (
@@ -15,10 +14,7 @@ export default function Home() {
         <InputSizes />
       </section>
       <section id="canvas">
-        <ScrollArea className="h-[330px] whitespace-nowrap rounded-md border">
-          <DisplayImage />
-          <ScrollBar orientation="horizontal" className="mx-4 my-1 h-4" />
-        </ScrollArea>
+        <ImageZone />
       </section>
       <section id="download">
         <ZipButton />

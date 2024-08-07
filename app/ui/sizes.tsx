@@ -14,8 +14,12 @@ export function InputSizes() {
   const [values, setValues] = useState([8]);
 
   useEffect(() => {
-    dispatch(inputValue(values));
-  });
+    const timer = setTimeout(() => {
+      dispatch(inputValue(values));
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [dispatch, values]);
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const value: number[] = [...values];

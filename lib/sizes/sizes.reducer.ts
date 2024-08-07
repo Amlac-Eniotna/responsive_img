@@ -6,6 +6,7 @@ import {
   FILE,
   IMAGES,
   QUALITY,
+  ORIGINAL_RESOLUTION,
 } from "./sizes.actions";
 
 const initialState: {
@@ -15,6 +16,7 @@ const initialState: {
   quality: number;
   file: string;
   images: { url: string; height: number; width: number }[];
+  originalResolution: string;
 } = {
   numberOfInput: 1,
   widthHeight: "width",
@@ -22,6 +24,7 @@ const initialState: {
   quality: 0.8,
   file: "",
   images: [],
+  originalResolution: "",
 };
 
 export default function sizesReducer(
@@ -46,6 +49,8 @@ export default function sizesReducer(
       return { ...state, file: action.payload };
     case IMAGES:
       return { ...state, images: action.payload };
+    case ORIGINAL_RESOLUTION:
+      return { ...state, originalResolution: action.payload };
     default:
       return state;
   }

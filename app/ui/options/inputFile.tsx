@@ -2,11 +2,11 @@
 
 import { Input } from "@/components/ui/input";
 import { useAppDispatch } from "@/lib/hooks";
-import { file } from "@/lib/sizes/sizes.actions";
+import { file, originalResolution } from "@/lib/sizes/sizes.actions";
 import { useEffect, useState } from "react";
 
 export function InputFile() {
-  const [image, setImage] = useState<any>();
+  const [image, setImage] = useState<File | null>(null);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -16,6 +16,14 @@ export function InputFile() {
       reader.onload = () => {
         //@ts-ignore
         dispatch(file(reader.result));
+        const img: HTMLImageElement = new Image();
+        img.onload = () => {
+          const width = img.naturalWidth;
+          const height = img.naturalHeight;
+          dispatch(originalResolution(`${width} x ${height}`));
+        };
+        //@ts-ignore
+        img.src = reader.result;
       };
     }
   }, [image, dispatch]);

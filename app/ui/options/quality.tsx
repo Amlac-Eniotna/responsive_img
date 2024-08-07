@@ -10,8 +10,12 @@ export function Quality() {
   const [qualityState, setQualityState] = useState(0.8);
 
   useEffect(() => {
-    dispatch(quality(qualityState));
-  });
+    const timer = setTimeout(() => {
+      dispatch(quality(qualityState));
+    }, 250);
+
+    return () => clearTimeout(timer);
+  }, [dispatch, qualityState]);
 
   function handleChange(e: any) {
     setQualityState(e[0]);
@@ -19,7 +23,7 @@ export function Quality() {
 
   return (
     <div className="flex items-center gap-4">
-      <p>quality : {qualityState}</p>
+      <p className="w-20 whitespace-nowrap">quality : {qualityState}</p>
       <Slider
         defaultValue={[0.8]}
         max={1}
